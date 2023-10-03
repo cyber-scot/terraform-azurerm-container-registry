@@ -16,7 +16,7 @@ resource "azurerm_container_registry" "acr" {
   tags                          = each.value.tags
 
   dynamic "georeplications" {
-      for_each = title(each.value.sku) == "Premium" && each.value.georeplications != null ? [each.value.georeplications] : []
+    for_each = title(each.value.sku) == "Premium" && each.value.georeplications != null ? [each.value.georeplications] : []
     content {
       location                = georeplications.value.location
       zone_redundancy_enabled = georeplications.value.zone_redundancy_enabled
@@ -102,7 +102,7 @@ locals {
     registry.agent_pool != null ? [
       for pool in registry.agent_pool : {
         registry_name = registry.name
-        pool = pool
+        pool          = pool
       }
     ] : []
   ])
@@ -117,8 +117,8 @@ resource "azurerm_container_registry_agent_pool" "agent_pool" {
   location                = azurerm_container_registry.acr[each.value.registry_name].location
   container_registry_name = azurerm_container_registry.acr[each.value.registry_name].name
 
-  instance_count          = try(each.value.pool.instance_count, 1)
-  tier                    = try(each.value.pool.tier, "S1")
+  instance_count            = try(each.value.pool.instance_count, 1)
+  tier                      = try(each.value.pool.tier, "S1")
   virtual_network_subnet_id = try(each.value.pool.virtual_network_subnet_id, null)
-  tags                    = try(each.value.pool.tags, null)
+  tags                      = try(each.value.pool.tags, null)
 }
