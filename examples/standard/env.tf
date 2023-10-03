@@ -7,7 +7,7 @@ variable "env" {
 variable "loc" {
   type        = string
   description = "The loc variable, for the shorthand location, e.g. uks for UK South.  Normally passed via TF_VAR."
-  default     = "uks"
+  default     = "euw"
 }
 
 variable "short" {
