@@ -28,33 +28,33 @@ module "network" {
 }
 
 module "container_registry" {
-  source = "../../"
+  source = "cyber-scot/container-registry/azurerm"
 
   registries = [
     {
-      name     = "acr${var.short}${var.loc}${var.env}01"
-      rg_name  = module.rg.rg_name
-      location = module.rg.rg_location
-      tags     = module.rg.rg_tags
-      admin_enabled = true
-      sku           = "Basic"
+      name                  = "acr${var.short}${var.loc}${var.env}01"
+      rg_name               = module.rg.rg_name
+      location              = module.rg.rg_location
+      tags                  = module.rg.rg_tags
+      admin_enabled         = true
+      sku                   = "Basic"
       export_policy_enabled = true
     },
     {
-      name     = "acr${var.short}${var.loc}${var.env}02"
-      rg_name  = module.rg.rg_name
-      location = module.rg.rg_location
-      tags     = module.rg.rg_tags
-      admin_enabled = true
+      name                  = "acr${var.short}${var.loc}${var.env}02"
+      rg_name               = module.rg.rg_name
+      location              = module.rg.rg_location
+      tags                  = module.rg.rg_tags
+      admin_enabled         = true
       export_policy_enabled = true
-      sku = "Premium"
+      sku                   = "Premium"
       agent_pool = [ # As of 03/10/2023 - only eastus,westeurope,westus2,southcentralus,canadacentral,centralus,eastasia,eastus2,northeurope are supported
         {
-          name = "pool1"
-          instance_count = 1
-          tier = "S1"
+          name                      = "pool1"
+          instance_count            = 1
+          tier                      = "S1"
           virtual_network_subnet_id = module.network.subnets_ids["sn1-${module.network.vnet_name}"]
-          tags = module.rg.rg_tags
+          tags                      = module.rg.rg_tags
         }
       ]
     }
@@ -77,7 +77,7 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_container_registry"></a> [container\_registry](#module\_container\_registry) | ../../ | n/a |
+| <a name="module_container_registry"></a> [container\_registry](#module\_container\_registry) | cyber-scot/container-registry/azurerm | n/a |
 | <a name="module_network"></a> [network](#module\_network) | cyber-scot/network/azurerm | n/a |
 | <a name="module_rg"></a> [rg](#module\_rg) | cyber-scot/rg/azurerm | n/a |
 

@@ -26,7 +26,7 @@ module "network" {
 }
 
 module "container_registry" {
-  source = "../../"
+  source = "cyber-scot/container-registry/azurerm"
 
   registries = [
     {
