@@ -26,9 +26,9 @@ output "registry_admin_usernames" {
 output "registry_identities" {
   description = "The identities associated with the Azure Container Registry tasks."
   value = {
-    principal_id = length(azurerm_container_registry_task.acr_task[*].identity) > 0 ? azurerm_container_registry_task.acr_task[*].identity[0].principal_id : null,
-    tenant_id    = length(azurerm_container_registry_task.acr_task[*].identity) > 0 ? azurerm_container_registry_task.acr_task[*].identity[0].tenant_id : null,
-    type         = length(azurerm_container_registry_task.acr_task[*].identity) > 0 ? azurerm_container_registry_task.acr_task[*].identity[0].type : null
+    principal_id = length(azurerm_container_registry.acr[*].identity) > 0 ? azurerm_container_registry.acr[*].identity[0].principal_id : null,
+    tenant_id    = length(azurerm_container_registry.acr[*].identity) > 0 ? azurerm_container_registry.acr[*].identity[0].tenant_id : null,
+    type         = length(azurerm_container_registry.acr[*].identity) > 0 ? azurerm_container_registry.acr[*].identity[0].type : null
   }
 }
 
