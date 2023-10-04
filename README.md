@@ -161,6 +161,7 @@ No modules.
 | <a name="output_agent_pool_names"></a> [agent\_pool\_names](#output\_agent\_pool\_names) | The names of the Azure Container Registry Agent Pools. |
 | <a name="output_registry_admin_passwords"></a> [registry\_admin\_passwords](#output\_registry\_admin\_passwords) | The admin passwords of the created Azure Container Registries, if admin is enabled. |
 | <a name="output_registry_admin_usernames"></a> [registry\_admin\_usernames](#output\_registry\_admin\_usernames) | The admin usernames of the created Azure Container Registries, if admin is enabled. |
+| <a name="output_registry_identities"></a> [registry\_identities](#output\_registry\_identities) | The identities of the Azure Container Registries. |
 | <a name="output_registry_ids"></a> [registry\_ids](#output\_registry\_ids) | The IDs of the created Azure Container Registries. |
 | <a name="output_registry_locations"></a> [registry\_locations](#output\_registry\_locations) | The locations of the created Azure Container Registries. |
 | <a name="output_registry_login_servers"></a> [registry\_login\_servers](#output\_registry\_login\_servers) | The login servers of the created Azure Container Registries. |

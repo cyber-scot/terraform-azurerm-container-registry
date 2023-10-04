@@ -23,6 +23,17 @@ output "registry_admin_usernames" {
   value       = [for r in azurerm_container_registry.acr : r.admin_username]
 }
 
+output "registry_identities" {
+  description = "The identities of the Azure Container Registries."
+  value = {
+    for key, registry in azurerm_container_registry.acr : key => {
+      type         = registry.identity[0].type
+      principal_id = try(registry.identity[0].principal_id, null)
+      tenant_id    = try(registry.identity[0].tenant_id, null)
+    }
+  }
+}
+
 output "registry_ids" {
   description = "The IDs of the created Azure Container Registries."
   value       = [for r in azurerm_container_registry.acr : r.id]
